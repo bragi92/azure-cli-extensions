@@ -4,8 +4,8 @@ Pre-release build of the `aks-preview` extension for bug-bashing the new
 `--enable-control-plane-metrics` / `--disable-control-plane-metrics` flags on
 `az aks create` and `az aks update` before they merge upstream.
 
-- Upstream PR: <https://github.com/Azure/azure-cli-extensions/pull/9931>
-- In-box CLI mirror PR: <https://github.com/Azure/azure-cli/pull/33537>
+- `aks-preview` extension PR (what this bug bash is testing): <https://github.com/Azure/azure-cli-extensions/pull/9931>
+- GA in-box CLI PR (parallel change in `az aks`, not exercised by this wheel): <https://github.com/Azure/azure-cli/pull/33537>
 - Source branch (this fork): `kadubey/aks-control-plane-metrics-upstream`
 
 The flags surface the first-class API property
