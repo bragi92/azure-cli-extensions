@@ -11,8 +11,12 @@ Pre-release build of the `aks-preview` extension for bug-bashing the new
 The flags surface the first-class API property
 `azureMonitorProfile.metrics.controlPlane.enabled`, which replaces the previous
 AFEC-gated preview. Enabling control-plane metrics turns on the Azure Monitor
-managed Prometheus collection for `kube-apiserver`, `etcd`, `kube-scheduler`,
-and `kube-controller-manager`.
+managed Prometheus default collection targets `controlplane-apiserver` and
+`controlplane-etcd` (the minimal-ingestion-profile defaults). Additional
+targets such as `controlplane-kube-scheduler` and
+`controlplane-kube-controller-manager` remain opt-in via the AMW
+`MinimalIngestionProfile`/`Default[Targets]Metrics` settings and are **not**
+flipped on by these flags.
 
 > **Greenfield race fix:** on `az aks create`, the CP flip is intentionally
 > deferred to a postprocessing PUT that runs **after** the DCRA is created.
